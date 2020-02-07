@@ -1,5 +1,11 @@
 <html>
 	<body>
-		Congratulations! You are old enough to sign up for this site.
+		Using information from <a href="https://www.baeldung.com/thymeleaf-iteration"></a>
+		<table border=2>
+		<tr th:each="person: ${people}">
+			<td th:text="${person.age}" />
+			<td th:text="${person.name}" />
+		</tr>
+	</table>
 	</body>
 </html>

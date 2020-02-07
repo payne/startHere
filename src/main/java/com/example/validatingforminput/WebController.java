@@ -1,5 +1,7 @@
 package com.example.validatingforminput;
 
+import java.util.*;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.ui.Model;
 
 
 @Controller
@@ -24,12 +27,16 @@ public class WebController implements WebMvcConfigurer {
 	}
 
 	@PostMapping("/")
-	public String checkPersonInfo(@Valid PersonForm personForm, BindingResult bindingResult) {
+	public String checkPersonInfo(@Valid PersonForm personForm, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return "form";
 		}
 
-		return "redirect:/results";
+		List<PersonForm> peopleList = new ArrayList<>();
+		peopleList.add(new PersonForm("Matt",54));
+		peopleList.add(new PersonForm("Dustin",51));
+		model.addAttribute("people",  peopleList);
+		return "results";
 	}
 }
