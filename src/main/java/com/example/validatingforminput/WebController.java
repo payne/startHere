@@ -34,8 +34,10 @@ public class WebController implements WebMvcConfigurer {
 		}
 
 		List<PersonForm> peopleList = new ArrayList<>();
+		peopleList.add(personForm);
 		peopleList.add(new PersonForm("Matt",54));
 		peopleList.add(new PersonForm("Dustin",51));
+		peopleList.add(new PersonForm("Dave", 52));
 		model.addAttribute("people",  peopleList);
 		return "results";
 	}
