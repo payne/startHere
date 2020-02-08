@@ -41,4 +41,14 @@ public class WebController implements WebMvcConfigurer {
 		model.addAttribute("people",  peopleList);
 		return "results";
 	}
+	@GetMapping("/kb")
+	public String kbForm() {
+		return "addKB";
+	}
+
+	@PostMapping("/kb")
+	public String receiveArticle(ArticleForm articleForm) {
+		System.out.println(articleForm.getTitle());
+		return "addKB";
+	}
 }
