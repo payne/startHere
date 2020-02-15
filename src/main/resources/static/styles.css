@@ -1,0 +1,50 @@
+body {
+    background-color: lightgray;
+}
+
+h1 {
+    text-align: center;
+}
+
+fieldset {
+    margin: auto;
+    width: fit-content;
+}
+
+legend {
+    font-weight: bold;
+}
+
+form {
+    padding-top: 3em;
+}
+
+label {
+    color: navy;
+    float: left;
+    width: 8em;
+    font-weight: bold;
+    text-align: right;
+}
+
+input {
+    width: 15em;
+    margin-left: 1em;
+    margin-bottom: .5em;
+}
+
+input:focus {
+    border: 2px solid navy;
+}
+
+#submit {
+    float: right;
+    width: fit-content;
+}
+
+#description {
+    height: 15em;
+    width: 30em;
+    margin-left: 1em;
+    margin-bottom: .5em;
+}
