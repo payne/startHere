@@ -49,6 +49,10 @@ public class WebController implements WebMvcConfigurer {
 	@PostMapping("/kb")
 	public String receiveArticle(ArticleForm articleForm) {
 		System.out.println(articleForm.getTitle());
+		System.out.println(articleForm.getSummary());
+		System.out.println(articleForm.getDescription());
 		return "addKB";
 	}
+	
+	
 }
