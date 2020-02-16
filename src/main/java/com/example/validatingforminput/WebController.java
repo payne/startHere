@@ -12,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.ui.Model;
 
-
 @Controller
 public class WebController implements WebMvcConfigurer {
 
@@ -35,12 +34,13 @@ public class WebController implements WebMvcConfigurer {
 
 		List<PersonForm> peopleList = new ArrayList<>();
 		peopleList.add(personForm);
-		peopleList.add(new PersonForm("Matt",54));
-		peopleList.add(new PersonForm("Dustin",51));
+		peopleList.add(new PersonForm("Matt", 54));
+		peopleList.add(new PersonForm("Dustin", 51));
 		peopleList.add(new PersonForm("Dave", 52));
-		model.addAttribute("people",  peopleList);
+		model.addAttribute("people", peopleList);
 		return "results";
 	}
+
 	@GetMapping("/kb")
 	public String kbForm() {
 		return "addKB";
@@ -53,6 +53,5 @@ public class WebController implements WebMvcConfigurer {
 		System.out.println(articleForm.getDescription());
 		return "addKB";
 	}
-	
-	
+
 }
