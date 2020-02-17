@@ -48,10 +48,12 @@ public class WebController implements WebMvcConfigurer {
 
 	@PostMapping("/kb")
 	public String receiveArticle(ArticleForm articleForm) {
+		// I don't understand why or where 52 - 54 are "printing"
 		System.out.println(articleForm.getTitle());
 		System.out.println(articleForm.getSummary());
 		System.out.println(articleForm.getDescription());
-		return "addKB";
+		// Add the three strings to the model here.
+		return "addKB"; // I think this should be liskKB.html
 	}
 
 }
