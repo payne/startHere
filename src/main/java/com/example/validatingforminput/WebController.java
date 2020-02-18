@@ -52,7 +52,6 @@ public class WebController implements WebMvcConfigurer {
 	@PostMapping("/kb")
 	public String receiveArticle(ArticleForm articleForm, Model model) {
 		model.addAttribute("a", articleForm);
-		model.addAttribute("b", articleForm);
 		return "addKB";
 	}
 
