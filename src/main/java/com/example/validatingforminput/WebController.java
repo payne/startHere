@@ -42,18 +42,18 @@ public class WebController implements WebMvcConfigurer {
 	}
 
 	@GetMapping("/kb")
-	public String kbForm() {
+	public String kbForm(Model model) {
+		ArticleForm a = new ArticleForm();
+		model.addAttribute("a", a);
+		model.addAttribute("b", a);
 		return "addKB";
 	}
 
 	@PostMapping("/kb")
-	public String receiveArticle(ArticleForm articleForm) {
-		// I don't understand why or where 52 - 54 are "printing"
-		System.out.println(articleForm.getTitle());
-		System.out.println(articleForm.getSummary());
-		System.out.println(articleForm.getDescription());
-		// Add the three strings to the model here.
-		return "addKB"; // I think this should be liskKB.html
+	public String receiveArticle(ArticleForm articleForm, Model model) {
+		model.addAttribute("a", articleForm);
+		model.addAttribute("b", articleForm);
+		return "addKB";
 	}
 
 }
