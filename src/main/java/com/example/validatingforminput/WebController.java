@@ -45,7 +45,6 @@ public class WebController implements WebMvcConfigurer {
 	public String kbForm(Model model) {
 		ArticleForm a = new ArticleForm();
 		model.addAttribute("a", a);
-		model.addAttribute("b", a);
 		return "addKB";
 	}
 
