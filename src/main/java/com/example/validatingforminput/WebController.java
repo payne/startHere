@@ -14,6 +14,12 @@ import org.springframework.ui.Model;
 
 @Controller
 public class WebController implements WebMvcConfigurer {
+	
+	private ArrayList<ArticleForm> articleList;
+
+	public WebController() {
+		this.articleList = new ArrayList<ArticleForm>();
+	}
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
@@ -31,8 +37,8 @@ public class WebController implements WebMvcConfigurer {
 		if (bindingResult.hasErrors()) {
 			return "form";
 		}
-
-		List<PersonForm> peopleList = new ArrayList<>();
+		// leave out validation for my version of this.
+		List<PersonForm> peopleList = new ArrayList<>(); // don't create here, create w/constuctor and add to it here.
 		peopleList.add(personForm);
 		peopleList.add(new PersonForm("Matt", 54));
 		peopleList.add(new PersonForm("Dustin", 51));
@@ -48,10 +54,18 @@ public class WebController implements WebMvcConfigurer {
 		return "addKB";
 	}
 
+//	@PostMapping("/kb")
+//	public String receiveArticle(ArticleForm articleForm, Model model) {
+//		model.addAttribute("a", articleForm);
+//		return "addKB";
+//	}
+	
 	@PostMapping("/kb")
 	public String receiveArticle(ArticleForm articleForm, Model model) {
+		articleList.add(articleForm);
 		model.addAttribute("a", articleForm);
-		return "addKB";
+		return "listKB";
 	}
-
+	
+	
 }
