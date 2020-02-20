@@ -10,9 +10,9 @@
 <body>
     <table>
         <tr th:each="article: ${a}">
-            <td th:text="${a.title" />
-            <td th:text="${a.summary" />
-            <td th:text="${a.description" />
+            <td th:text="${article.title}" />
+            <td th:text="${article.summary}" />
+            <td th:text="${article.description}" />
         </tr>
     </table>
 </body>

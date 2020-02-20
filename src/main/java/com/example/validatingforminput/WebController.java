@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 
 @Controller
 public class WebController implements WebMvcConfigurer {
-	
+
 	private ArrayList<ArticleForm> articleList;
 
 	public WebController() {
@@ -54,18 +54,11 @@ public class WebController implements WebMvcConfigurer {
 		return "addKB";
 	}
 
-//	@PostMapping("/kb")
-//	public String receiveArticle(ArticleForm articleForm, Model model) {
-//		model.addAttribute("a", articleForm);
-//		return "addKB";
-//	}
-	
 	@PostMapping("/kb")
 	public String receiveArticle(ArticleForm articleForm, Model model) {
 		articleList.add(articleForm);
 		model.addAttribute("a", articleForm);
 		return "listKB";
 	}
-	
-	
+
 }
