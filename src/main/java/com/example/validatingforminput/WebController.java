@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,8 @@ import org.springframework.ui.Model;
 @Controller
 public class WebController implements WebMvcConfigurer {
 
+    @Autowired
+	private JdbcTemplate jdbcTemplate;
 	private ArrayList<ArticleForm> articleList;
 
 	public WebController() {
@@ -28,6 +32,11 @@ public class WebController implements WebMvcConfigurer {
 
 	@GetMapping("/")
 	public String showForm(PersonForm personForm) {
+		BooksDao bookDao = new BooksDao(jdbcTemplate);
+		List<Book> lst = bookDao.findBooks();
+		for (Book book: lst) {
+			System.out.println(book);
+		}
 		return "form";
 	}
 
