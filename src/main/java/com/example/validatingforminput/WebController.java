@@ -33,6 +33,13 @@ public class WebController implements WebMvcConfigurer {
 	@GetMapping("/")
 	public String showForm(PersonForm personForm) {
 		BooksDao bookDao = new BooksDao(jdbcTemplate);
+		Book lw = new Book();
+		lw.setBookid(77);
+		lw.setTitle("Love Wins");
+		lw.setAuthor("Rob Bell");
+		lw.setPublished("01-01-2010");
+		lw.setStock(777);
+		bookDao.addBook(lw);
 		List<Book> lst = bookDao.findBooks();
 		for (Book book: lst) {
 			System.out.println(book);
